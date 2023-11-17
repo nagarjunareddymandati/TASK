@@ -1,40 +1,16 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const username = document.getElementById('loginUsername').value;
-  const password = document.getElementById('loginPassword').value;
+const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-form-submit");
+const loginErrorMsg = document.getElementById("login-error-msg");
 
-  // Check if username and password are valid
-  if (username === 'admin' && password === 'password') {
-    // Successful login
-    alert('Login Successful');
-    window.location.href = "index.html";
-  } else {
-    // Invalid login
-    alert('Invalid username or password');
-  }
-});
+loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
 
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const username = document.getElementById('regUsername').value;
-  const email = document.getElementById('regEmail').value;
-  const password = document.getElementById('regPassword').value;
-  const confirmPassword = document.getElementById('regConfirmPassword').value;
-
-  // Check if all fields are filled
-  if (username && email && password && confirmPassword) {
-    // Check if passwords match
-    if (password === confirmPassword) {
-      // Successful registration
-      alert('Registration Successful');
-      // Reset the form
-      document.getElementById('registrationForm').reset();
+    if (username === "Nag" && password === "Nag@123") {
+        alert("You have successfully logged in.");
+        window.location.pathname="index.html";
     } else {
-      // Passwords don't match
-      alert('Passwords do not match');
+        loginErrorMsg.style.opacity = 1;
     }
-  } else {
-    // Missing fields
-    alert('Please fill in all fields');
-  }
-});
+})
